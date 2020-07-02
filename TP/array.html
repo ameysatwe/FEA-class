@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var a=[];
+        creatematrix(a);
+        var b=[];
+        creatematrix(b);
+        console.log("a",a);
+        console.log("b",b);
+        addmatrix(a,b);
+        matmul(a,b);
+
+        function creatematrix(a){
+            
+         for(i=0;i<3;i++){
+             a[i]=[];
+             for(j=0;j<3;j++){
+                 a[i][j]=1;
+                }
+            }
+        }
+         
+        function addmatrix(a,b){
+            var c=[];
+            for(i=0;i<3;i++){
+                c[i]=[];
+                for(j=0;j<3;j++){
+                    c[i][j]=a[i][j]+b[i][j];
+                }
+            }
+            console.log("c",c);
+        } 
+
+         function matmul(a,b)
+         {
+             var c=[];
+             for(i=0;i<3;i++)
+             {
+                c[i]=[];
+                for(k=0;k<3;k++)
+                {
+                    sum=0;
+                    for(j=0;j<3;j++)
+                    {
+                        sum=sum+a[i][j]*b[j][k];
+                    }
+                    c[i][k]=sum;
+                    document.write(c[i][k])
+                }
+                document.write("<br>")
+             }
+             
+         }
+
+    </script>
+   
+</body>
+</html>
