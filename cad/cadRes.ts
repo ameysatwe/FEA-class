@@ -52,8 +52,8 @@ function creatematrices(xr:number,yr:number,theta:number,clockwise:boolean)
     rotate=[[Math.cos(ang),-Math.sin(ang),0],
             [Math.sin(ang),Math.cos(ang),0],
             [0,0,1]]
-    result.push(trans,rotate)
-    return(result)
+    return {"Translate":trans,"Rotate":rotate}
+    //return(result)
 }
 function resultant(x:number,y:number,xr:number,yr:number,theta:number,clockwise:boolean,order:string)
 {
@@ -61,11 +61,11 @@ function resultant(x:number,y:number,xr:number,yr:number,theta:number,clockwise:
     var hmat=creatematrices(xr,yr,theta,clockwise)
     if(order=="RT")
     {
-        var mulmat=mul(hmat[0],hmat[1],3,3,3)
+        var mulmat=mul(hmat.Translate,hmat.Rotate,3,3,3)
     }
     else if(order=="TR")   
     {
-        var mulmat=mul(hmat[1],hmat[0],3,3,3)
+        var mulmat=mul(hmat.Rotate,hmat.Translate,3,3,3)
     }
     var result=mul(mulmat,coordmat,3,3,1)
     return result
