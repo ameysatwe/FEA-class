@@ -1,3 +1,13 @@
+var canvas = document.getElementById("mycanvas");
+var ctx = canvas.getContext('2d');
+function point(st) {
+    ctx.beginPath();
+    ctx.arc(st[0], st[1], 2, 0, 2 * Math.PI);
+    ctx.fillStyle = "Black";
+    ctx.fill();
+    ctx.stroke();
+    return ("point was sketched");
+}
 function mul(a = [], b = [], m, n, p) {
     var c = [];
     if (p == 1) {
@@ -44,7 +54,7 @@ function creatematrices(xr, yr, theta, clockwise) {
     return { "Translate": trans, "Rotate": rotate };
     //return(result)
 }
-function resultant(x, y, xr, yr, theta, clockwise, order) {
+function Homogenous(x, y, xr, yr, theta, clockwise, order) {
     var coordmat = [x, y, 1];
     var hmat = creatematrices(xr, yr, theta, clockwise);
     if (order == "RT") {

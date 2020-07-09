@@ -1,3 +1,15 @@
+var canvas:HTMLCanvasElement=<HTMLCanvasElement>document.getElementById("mycanvas")
+var ctx:CanvasRenderingContext2D=<CanvasRenderingContext2D>canvas.getContext('2d')
+function point(st:number[])
+{
+    ctx.beginPath()
+    ctx.arc(st[0],st[1],2,0,2*Math.PI)
+    ctx.fillStyle="Black"
+    ctx.fill();
+    ctx.stroke();
+    return ("point was sketched")
+}
+
 function mul(a=[],b=[],m:number,n:number,p:number):number[]
         {   
             var c=[];
@@ -55,7 +67,7 @@ function creatematrices(xr:number,yr:number,theta:number,clockwise:boolean)
     return {"Translate":trans,"Rotate":rotate}
     //return(result)
 }
-function resultant(x:number,y:number,xr:number,yr:number,theta:number,clockwise:boolean,order:string)
+function Homogenous(x:number,y:number,xr:number,yr:number,theta:number,clockwise:boolean,order:string)
 {
     var coordmat=[x,y,1]
     var hmat=creatematrices(xr,yr,theta,clockwise)
