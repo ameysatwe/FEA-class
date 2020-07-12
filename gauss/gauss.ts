@@ -1,24 +1,41 @@
-let t,k;
-function gauss(a:number[],c:number[])
-{
 
-}
-function pivot(a:number[],c?:number[])
-{
-    var n=a.length
-    for(let i=0;i<n;i++)
-    {
-        for(let j=0;j<n;j++)
+function gauss(a,c)
         {
-            t[i][j]=a[j][i]/a[i][i]
-            for(k=0;k<n;k++)
+            upper(a,c);
+            var x = back(a,c);
+            return(x);
+        }
+        function upper(a,c)
+        {
+            var n = a.length;
+            for(let i=0;i<n-1;i++)
             {
-                a[j][k]=a[j][k]-t*a[i][k];
+                for(let k=i+1;k<n;k++)
+                {
+                    var m = a[k][i]/a[i][i]
+                    console.log(m);
+                    for(let j=0;j<n;j++)
+                    {
+                        a[k][j] = a[k][j] - m*a[i][j];
+                        console.log("my position is k= " +k +"j= "+j+"value = "+a[k][j]);
+                    }
+                    c[k] = c[k] - m*c[i];
+                    
+                }
             }
         }
-    }
-}
-function back(a,c)
-{
-    
-}
+        function back(a,c)
+        {
+            var n = a.length;
+            for(let i=n-1;i>=0;i--)
+            {
+                var sum = c[i];
+                var x=[];
+                for(let j=i+1;j<n;j++)
+                {
+                    sum = sum - a[i][j]*x[j]
+                }
+                x[i] = sum/a[i][i];
+            }
+            return(x);
+        }

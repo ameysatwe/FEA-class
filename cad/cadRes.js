@@ -10,12 +10,12 @@ function point(st) {
     ctx.stroke();
     return ("point was sketched");
 }
-function mul(a = [], b = [], m, n, p) {
+function mul(a = [], b = [], row1, col1, col2) {
     var c = [];
-    if (p == 1) {
-        for (let i = 0; i < m; i++) {
+    if (col2 == 1) {
+        for (let i = 0; i < row1; i++) {
             let sum = 0;
-            for (let j = 0; j < n; j++) {
+            for (let j = 0; j < col1; j++) {
                 sum = sum + a[i][j] * b[j];
                 //console.log(sum);
             }
@@ -24,11 +24,11 @@ function mul(a = [], b = [], m, n, p) {
         //return c;
     }
     else {
-        for (let i = 0; i < m; i++) {
+        for (let i = 0; i < row1; i++) {
             c[i] = [];
-            for (let k = 0; k < p; k++) {
+            for (let k = 0; k < col2; k++) {
                 let sum = 0;
-                for (let j = 0; j < n; j++) {
+                for (let j = 0; j < col1; j++) {
                     sum = sum + a[i][j] * b[j][k];
                 }
                 c[i][k] = sum;
