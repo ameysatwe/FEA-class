@@ -6,5 +6,3 @@
 [CAD codes here](./cad/)
 
 [Gauss code is here](./gauss/)
-
-# Amey is Here
