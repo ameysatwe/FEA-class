@@ -108,8 +108,23 @@ function createScaleMatrix(scalex:number,scaley:number,relative:boolean,xrel?:nu
     }
     return scale
 }
-
-
+function line(pt){
+    ctx.beginPath()
+    ctx.moveTo(pt[0][0],pt[1][0])
+    ctx.lineTo(pt[0][1],pt[1][1])
+    ctx.stroke()
+    return "Line on Canvas"
+}
+function triangle(pt)
+{
+    ctx.beginPath()
+    ctx.moveTo(pt[0][0],pt[1][0])
+    ctx.lineTo(pt[0][1],pt[1][1])
+    ctx.lineTo(pt[0][2],pt[1][2])
+    ctx.lineTo(pt[0][0],pt[1][0])
+    ctx.stroke()
+    return "Triangle was sketched"
+}
 
 
 
