@@ -1,5 +1,6 @@
 var canvas:HTMLCanvasElement=<HTMLCanvasElement>document.getElementById("mycanvas")
 var ctx:CanvasRenderingContext2D=<CanvasRenderingContext2D>canvas.getContext('2d')
+console.log("Hello Kid")
 ctx.translate(canvas.width/2,canvas.height/2)
 ctx.scale(1,-1)
 function point(st:number[])
