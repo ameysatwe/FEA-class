@@ -1,8 +1,8 @@
 # FEA-class
-[Matrix Multiplication here](./Matmul/)
+* [Matrix Multiplication here](./Matmul/)
 
-[TP Codes of FEA are here](./TP/)
+* [TP Codes of FEA are here](./TP/)
 
-[CAD codes here](./cad/)
+* [CAD codes here](./cad/)
 
-[Gauss code is here](./gauss/)
+* [Gauss code is here](./gauss/)

@@ -39,3 +39,57 @@ function gauss(a,c)
             }
             return(x);
         }
+let K;
+var n=+prompt("Enter no of Nodes")
+var ne=n-1;
+initStiff(n)
+let sigma=[]
+for(let i=0;i<ne;i++)
+{
+    var A=+prompt('Enter Area')
+    var E=+prompt('Enter E:')
+    var le=+prompt('Enter length of element')
+    K[i][i]=K[i][i]+A*E/le
+    K[i][i+1]-= A*E/le
+    K[i+1][i]-= A*E/le
+    K[i+1][i+1]+=   A*E/le
+    sigma[i]=E/le
+}
+
+var fixed1=1
+var fixedn=1
+
+var fixed1=+prompt('Enter 0 for fixed 1 for free')
+var fixedn=+prompt('Enter 0 for fixed 1 for free')
+var c=10e10
+if(fixed1==0){
+    K[0][0]+=c
+}
+if(fixedn==0){
+    K[n-1][n-1]+=c
+}
+
+
+var F=[]
+for(let i=0;i<n;i++){
+    F[i]=+prompt("Enter force node:"+i)
+}
+
+let Q=gauss(K,F)
+console.log(Q)
+
+for (let i = 0; i < ne; i++) {
+    sigma[i] = sigma[i]*(Q[i+1]-Q[i]);
+    
+}
+
+function initStiff(n:number){
+    K=[]
+    for(let i=0;i<n;i++){
+        K[i]=[]
+        for(let j=0;j<n;j++){
+            K[i][j]=0;
+        }
+    }
+
+}
